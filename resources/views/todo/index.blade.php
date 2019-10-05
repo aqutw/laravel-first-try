@@ -1,3 +1,7 @@
+@foreach ($todos as $todo)
+  <p>{{ $todo->id . ' ' . $todo->title . ' ' . $todo->created_at }}</p>
+@endforeach
+
 <form method="post" action="">
   {{ csrf_field() }}
   {{ '<span>Default' }}
@@ -6,3 +10,5 @@
   <input type="text" name="title" value="">
   <button type="submit" name="button">Submit</button>
 </form>
+
+{{ $todos }}

@@ -8,7 +8,8 @@ use App\Todo;
 class TodoController extends Controller
 {
     public function index(){
-      return view('todo.index');
+      $todos = Todo::all();
+      return view('todo.index', ['todos'=>$todos]);
     }
     public function update(Request $req){
       /*
@@ -19,6 +20,14 @@ class TodoController extends Controller
       $todo = Todo::create(['title'=>$req->title]);
       # $todo = Todo::create($req->all()); # not work
 
-      return $todo;
+      return redirect(route(TODO_ROUTE_NAME));
+    }
+
+    public function test_var(){
+      echo route(PROFILE_ROUTE_NAME);
+      echo'<hr>';
+      $href = route(TODO_ROUTE_NAME);
+      echo$href;
+      echo'<a href="'.$href.'">'.$href.'</a>';
     }
 }

@@ -13,6 +13,7 @@
 define('PROFILE_ROUTE_NAME','profile');
 define('ADMIN_ROUTE_NAME_PREFIX','admin.');
 define('USER_LIST_ROUTE_NAME','names');
+define('TODO_ROUTE_NAME','todo');
 
 Route::get('/', function () {
     echo'xxx';
@@ -22,8 +23,9 @@ Route::get('/', function () {
 //     echo$name;
 // });
 
-Route::get('/todo', 'TodoController@index');
-Route::post('/todo', 'TodoController@update');
+Route::name(TODO_ROUTE_NAME)->get('/todo', 'TodoController@index');
+Route::get('/todo/test_var', 'TodoController@test_var');
+Route::name(TODO_ROUTE_NAME)->post('/todo', 'TodoController@update');
 
 
 Route::get('search/{rest}', function ($rest) {
