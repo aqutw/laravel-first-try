@@ -13,7 +13,9 @@
 define('PROFILE_ROUTE_NAME','profile');
 define('ADMIN_ROUTE_NAME_PREFIX','admin.');
 define('USER_LIST_ROUTE_NAME','names');
-define('TODO_ROUTE_NAME','todo');
+define('TODO_LIST_ROUTE_NAME','list_todo'); # rename to TODO_LIST_ROUTE_NAME
+define('CREATE_TODO_ROUTE_NAME','update_todo');
+define('DELETE_TODO_ROUTE_NAME','delete_todo');
 
 Route::get('/', function () {
     echo'xxx';
@@ -23,10 +25,10 @@ Route::get('/', function () {
 //     echo$name;
 // });
 
-Route::name(TODO_ROUTE_NAME)->get('/todo', 'TodoController@index');
+Route::name(TODO_LIST_ROUTE_NAME)->get('/todo', 'TodoController@index');
 Route::get('/todo/test_var', 'TodoController@test_var');
-Route::name(TODO_ROUTE_NAME)->post('/todo', 'TodoController@update');
-Route::name(TODO_ROUTE_NAME)->delete('/todo/{todo}', 'TodoController@remove');
+Route::name(CREATE_TODO_ROUTE_NAME)->post('/todo', 'TodoController@update');
+Route::name(DELETE_TODO_ROUTE_NAME)->delete('/todo/{todo}', 'TodoController@remove');
 
 
 Route::get('search/{rest}', function ($rest) {

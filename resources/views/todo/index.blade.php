@@ -1,14 +1,26 @@
 @foreach ($todos as $todo)
   <p>{{ $todo->id . ' ' . $todo->title . ' ' . $todo->created_at }}</p>
-  <form action="{{ url(TODO_ROUTE_NAME, ['todo'=>$todo->id]) }}" method="post">
+  <form action="{{ route(DELETE_TODO_ROUTE_NAME, ['todo'=>$todo->id]) }}" method="post">
     @method('delete')
     @csrf
     <input type="submit" value="Delete">
   </form>
 @endforeach
 
-<form method="post" action="{{ url(TODO_ROUTE_NAME) }}">
-  {{ csrf_field() }}
+<ul>
+  <li>{{ DELETE_TODO_ROUTE_NAME }}
+  <li>{{ url(route(DELETE_TODO_ROUTE_NAME, ['todo'=>1])) }}
+  <li>{{ route(DELETE_TODO_ROUTE_NAME, ['todo'=>1]) }}
+  <li>{{ CREATE_TODO_ROUTE_NAME }}
+  <li>{{ url(route(CREATE_TODO_ROUTE_NAME)) }}
+  <li>{{ route(CREATE_TODO_ROUTE_NAME) }}
+  <li>{{ TODO_LIST_ROUTE_NAME }}
+  <li>{{ url(route(TODO_LIST_ROUTE_NAME)) }}
+  <li>{{ route(TODO_LIST_ROUTE_NAME) }}
+</ul>
+<form method="post" action="{{ route(CREATE_TODO_ROUTE_NAME) }}">
+  @csrf
+  {{-- csrf_field() --}}
   {{ '<span>Default' }}
   {!!'<strong>Default</strong>'!!}
   {{-- 此註解將不會出現在渲染後的 HTML --}}

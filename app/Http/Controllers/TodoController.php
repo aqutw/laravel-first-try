@@ -20,18 +20,20 @@ class TodoController extends Controller
       $todo = Todo::create(['title'=>$req->title]);
       # $todo = Todo::create($req->all()); # not work
 
-      return redirect(route(TODO_ROUTE_NAME));
+      return redirect(route(TODO_LIST_ROUTE_NAME));
     }
 
     public function test_var(){
       echo route(PROFILE_ROUTE_NAME);
       echo'<hr>';
-      $href = route(TODO_ROUTE_NAME);
+      $href = route(TODO_LIST_ROUTE_NAME);
       echo$href;
       echo'<a href="'.$href.'">'.$href.'</a>';
     }
 
     public function remove(Request $req, Todo $todo){
-      return ($todo);
+      $todo->delete();
+
+      return redirect(route(TODO_LIST_ROUTE_NAME));
     }
 }
