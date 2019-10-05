@@ -1,3 +1,7 @@
+@if($errors->has('title'))
+  <p style=color:red>{{ $errors->first('title') }}</p>
+@endif
+
 @foreach ($todos as $todo)
   <p>{{ $todo->id . ' ' . $todo->title . ' ' . $todo->created_at }}</p>
   <form action="{{ route(DELETE_BY_ID_TODO_ROUTE_NAME, ['todo'=>$todo->id]) }}" method="post">

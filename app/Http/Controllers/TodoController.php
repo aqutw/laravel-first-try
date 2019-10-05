@@ -12,12 +12,16 @@ class TodoController extends Controller
       return view('todo.index', ['todos'=>$todos]);
     }
     public function update(Request $req){
+      $valid_data = $req->validate([
+        'title'=>'required|min:5'
+      ]);
+
       /*
       $todo = new Todo();
       $todo->title = $req->title;
       $todo->save();*/
 
-      $todo = Todo::create(['title'=>$req->title]);
+      $todo = Todo::create($valid_data);
       # $todo = Todo::create($req->all()); # not work
 
       return redirect(route(TODO_LIST_ROUTE_NAME));
