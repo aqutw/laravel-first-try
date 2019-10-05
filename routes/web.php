@@ -23,6 +23,7 @@ Route::get('/', function () {
 // });
 
 Route::get('/todo', 'TodoController@index');
+Route::post('/todo', 'TodoController@update');
 
 
 Route::get('search/{rest}', function ($rest) {
