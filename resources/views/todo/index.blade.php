@@ -1,6 +1,6 @@
 @foreach ($todos as $todo)
   <p>{{ $todo->id . ' ' . $todo->title . ' ' . $todo->created_at }}</p>
-  <form action="{{ route(DELETE_TODO_ROUTE_NAME, ['todo'=>$todo->id]) }}" method="post">
+  <form action="{{ route(DELETE_BY_ID_TODO_ROUTE_NAME, ['todo'=>$todo->id]) }}" method="post">
     @method('delete')
     @csrf
     <input type="submit" value="Delete">
@@ -8,9 +8,9 @@
 @endforeach
 
 <ul>
-  <li>{{ DELETE_TODO_ROUTE_NAME }}
-  <li>{{ url(route(DELETE_TODO_ROUTE_NAME, ['todo'=>1])) }}
-  <li>{{ route(DELETE_TODO_ROUTE_NAME, ['todo'=>1]) }}
+  <li>{{ DELETE_BY_ID_TODO_ROUTE_NAME }}
+  <li>url(route(DELETE_BY_ID_TODO_ROUTE_NAME, ['todo'=>1])) ... fail
+  <li>{{ route(DELETE_BY_ID_TODO_ROUTE_NAME, ['todo'=>1]) }}
   <li>{{ CREATE_TODO_ROUTE_NAME }}
   <li>{{ url(route(CREATE_TODO_ROUTE_NAME)) }}
   <li>{{ route(CREATE_TODO_ROUTE_NAME) }}

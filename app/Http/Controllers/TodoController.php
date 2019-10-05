@@ -36,4 +36,9 @@ class TodoController extends Controller
 
       return redirect(route(TODO_LIST_ROUTE_NAME));
     }
+    public function remove2(Request $req, $todo_id){
+      Todo::where('id',$todo_id)->delete();
+
+      return redirect(route(TODO_LIST_ROUTE_NAME));
+    }
 }
