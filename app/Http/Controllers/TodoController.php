@@ -11,9 +11,14 @@ class TodoController extends Controller
       return view('todo.index');
     }
     public function update(Request $req){
+      /*
       $todo = new Todo();
       $todo->title = $req->title;
-      $todo->save();
+      $todo->save();*/
+
+      $todo = Todo::create(['title'=>$req->title]);
+      # $todo = Todo::create($req->all()); # not work
+
       return $todo;
     }
 }
