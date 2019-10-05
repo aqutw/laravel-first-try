@@ -22,6 +22,9 @@ Route::get('/', function () {
 //     echo$name;
 // });
 
+Route::get('/todo', 'TodoController@index');
+
+
 Route::get('search/{rest}', function ($rest) {
     echo $rest;
 })->where('rest', '.*');
