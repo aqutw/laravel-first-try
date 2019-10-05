@@ -30,4 +30,8 @@ class TodoController extends Controller
       echo$href;
       echo'<a href="'.$href.'">'.$href.'</a>';
     }
+
+    public function remove(Request $req, Todo $todo){
+      return ($todo);
+    }
 }

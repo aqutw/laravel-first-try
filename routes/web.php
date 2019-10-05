@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::name(TODO_ROUTE_NAME)->get('/todo', 'TodoController@index');
 Route::get('/todo/test_var', 'TodoController@test_var');
 Route::name(TODO_ROUTE_NAME)->post('/todo', 'TodoController@update');
+Route::name(TODO_ROUTE_NAME)->delete('/todo/{todo}', 'TodoController@remove');
 
 
 Route::get('search/{rest}', function ($rest) {
