@@ -1,10 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AjaxController extends Controller
+use App\Http\Controllers\ProjController;
+
+class AjaxController extends ProjController
 {
   public function index(){
     die('ajax index here.');

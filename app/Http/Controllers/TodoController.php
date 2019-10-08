@@ -1,11 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\ProjController;
 use App\Todo;
 
-class TodoController extends Controller
+class TodoController extends ProjController
 {
     public function index(){
       $todos = Todo::all();
@@ -33,6 +34,8 @@ class TodoController extends Controller
       $href = route(TODO_LIST_ROUTE_NAME);
       echo$href;
       echo'<a href="'.$href.'">'.$href.'</a>';
+      echo'<hr>';
+      $this->fn1();
     }
 
     public function remove(Request $req, Todo $todo){
