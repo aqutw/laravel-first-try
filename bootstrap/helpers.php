@@ -1,4 +1,4 @@
 <?php
-function helperfn1(){
-  echo'xxxx';
+function helperfn1($s){
+  echo'xxxx:'.$s;
 }
