@@ -22,6 +22,8 @@ define('DELETE_BY_ID_TODO_ROUTE_NAME','delete_by_id_todo');
 define('AJAX_INDEX_ROUTE_NAME', 'ajax');
 define('TRY_AJAX_1_ROUTE_NAME', 'try_ajax');
 
+define('WEB_URL','/');
+
 Route::get('/', function () {
     echo'xxx';
 });
