@@ -18,6 +18,9 @@ define('CREATE_TODO_ROUTE_NAME','update_todo');
 define('DELETE_TODO_ROUTE_NAME','delete_todo');
 define('DELETE_BY_ID_TODO_ROUTE_NAME','delete_by_id_todo');
 
+define('AJAX_INDEX_ROUTE_NAME', 'ajax');
+define('TRY_AJAX_1_ROUTE_NAME', 'try_ajax');
+
 Route::get('/', function () {
     echo'xxx';
 });
@@ -32,6 +35,8 @@ Route::name(CREATE_TODO_ROUTE_NAME)->post('/todo', 'TodoController@update');
 #Route::name(DELETE_TODO_ROUTE_NAME)->delete('/todo/{todo}', 'TodoController@remove');
 Route::name(DELETE_BY_ID_TODO_ROUTE_NAME)->delete('/todo/{todo}', 'TodoController@remove2');
 
+Route::name(AJAX_INDEX_ROUTE_NAME)->get('/ajax', 'AjaxController@index');
+Route::name(TRY_AJAX_1_ROUTE_NAME)->get('/ajax/try_ajax1', 'AjaxController@try_ajax1');
 
 Route::get('search/{rest}', function ($rest) {
     echo $rest;
