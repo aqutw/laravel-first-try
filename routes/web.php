@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 define('PROFILE_ROUTE_NAME','profile');
 define('ADMIN_ROUTE_NAME_PREFIX','admin.');
 define('USER_LIST_ROUTE_NAME','names');
@@ -49,6 +50,14 @@ Route::any('/', function () {
 Route::name(PROFILE_ROUTE_NAME)->get('user/profile', function () {
     echo'user profile here:';
     echo route('profile');
+});
+
+# https://www.w3resource.com/laravel/URL-generation.php
+Route::name('ironman')->get('the/{first}/avenger/{second}',function($first, $second) {
+    return "Tony Stark, the {$first} avenger {$second}.";
+});
+Route::get('example', function(){
+    return URL::route('ironman', array('aaa', 'bbb'));
 });
 
 Route::name(ADMIN_ROUTE_NAME_PREFIX)->group(function () {
